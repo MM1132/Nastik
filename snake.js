@@ -53,6 +53,16 @@ class Snake {
 				this.segments[0].pos.x = this.segments[1].pos.x - 1;
 				break;
 		}
+		// Teleport throuhg walls. Yey! 
+		if(this.segments[0].pos.x < 0) {
+			this.segments[0].pos.x = c.width / TILE_SIZE - 1;
+		} else if(this.segments[0].pos.x > c.width / TILE_SIZE - 1) {
+			this.segments[0].pos.x = 0;
+		} else if(this.segments[0].pos.y < 0) {
+			this.segments[0].pos.y = c.height / TILE_SIZE - 1;
+		} else if(this.segments[0].pos.y > c.height / TILE_SIZE - 1) {
+			this.segments[0].pos.y = 0;
+		}
 
 		// Collision detection
 		for(let i = 4; i < this.segments.length; i++) {
