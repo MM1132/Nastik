@@ -16,7 +16,7 @@ class Food {
 		};
 		// If such potition collides with any segments of the snake
 		if(snake.collides(this.pos.x, this.pos.y)) {
-			this.changePos();
+			this.changePos(snake);
 		}
 	}
 

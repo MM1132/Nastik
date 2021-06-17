@@ -35,7 +35,10 @@ class Snake {
 		// Turn the snake if we have any directions waiting in the list
 		if(this.directionList.length > 0) {
 			// Change the direction of the snake
-			this.direction = this.directionList[0];
+			if((this.direction + this.directionList[0]) % 2) {
+				this.direction = this.directionList[0];
+			}
+
 			// Remove the direction from the list that has been used
 			this.directionList.shift();
 		}
