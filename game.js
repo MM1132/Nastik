@@ -4,7 +4,7 @@ class Game {
 	}
 
 	update() {
-
+		this.snake.update();
 	}
 
 	render() {

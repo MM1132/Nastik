@@ -11,7 +11,27 @@ class Snake {
 	}
 
 	update() {
+		// Remove the tail
+		let tail = this.segments.pop();
+		
+		// Add the tail to the front
+		this.segments.unshift(tail);
 
+		// Change the coordinates of the segment moved to the front
+		switch(this.direction) {
+			case 0:
+				this.segments[0].pos.y = this.segments[1].pos.y - 1;
+				break;
+			case 1:
+				this.segments[0].pos.x = this.segments[1].pos.x + 1;
+				break;
+			case 2:
+				this.segments[0].pos.y = this.segments[1].pos.y + 1;
+				break;
+			case 3:
+				this.segments[0].pos.x = this.segments[1].pos.x + 1;
+				break;
+		}
 	}
 
 	render() {
