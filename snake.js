@@ -89,7 +89,7 @@ class Snake {
 		if(this.segments[0].pos.x == food.pos.x && this.segments[0].pos.y == food.pos.y) {
 			// The tail
 			let tail = this.segments[this.segments.length - 1];
-			for(let i = 0; i < 10; i++) {
+			for(let i = 0; i < 5; i++) {
 				this.segments.push(new Segment(tail.pos.x, tail.pos.y));
 			}
 			// Returning 2 means that our snake just ate the food

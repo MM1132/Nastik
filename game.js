@@ -1,11 +1,14 @@
 class Game {
 	constructor() {
-		this.snake = new Snake();
-		this.food = new Food();
+		this.reset();
+
+		this.score = 0;
 	}
 
 	reset() {
 		this.snake = new Snake();
+		this.food = new Food();
+		this.score = 0;
 	}
 
 	update() {
@@ -18,6 +21,7 @@ class Game {
 				this.reset();
 				break;
 			case 2:
+				this.score++;
 				this.food.changePos(this.snake);
 				break;
 		}
@@ -33,5 +37,10 @@ class Game {
 
 		// Render the food
 		this.food.render();
+
+		// Render the score
+		cc.fillStyle = "black";
+		cc.font = "bold 40px Verdana";
+		cc.fillText("Score: " + this.score, 10, c.height - 10);
 	}
 }
