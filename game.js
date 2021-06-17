@@ -1,6 +1,7 @@
 class Game {
 	constructor() {
 		this.snake = new Snake();
+		this.food = new Food();
 	}
 
 	reset() {
@@ -10,8 +11,15 @@ class Game {
 	update() {
 		// Update the snake
 		// In case of an error, reset the entire thing
-		if(this.snake.update()) {
-			this.reset();
+		switch(this.snake.update(this.food)) {
+			case 0:
+				break;
+			case 1:
+				this.reset();
+				break;
+			case 2:
+				this.food.changePos(this.snake);
+				break;
 		}
 	}
 
@@ -22,5 +30,8 @@ class Game {
 
 		// Render the snake
 		this.snake.render();
+
+		// Render the food
+		this.food.render();
 	}
 }

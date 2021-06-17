@@ -21,7 +21,17 @@ class Snake {
 		}
 	}
 
-	update() {
+	// Returns true if the coordinates match with any of the segments of the snake
+	collides(x, y) {
+		for(let i of this.segments) {
+			if(i.pos.x == x && i.pos.y == y) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	update(food) {
 		// Turn the snake if we have any directions waiting in the list
 		if(this.directionList.length > 0) {
 			// Change the direction of the snake
@@ -68,10 +78,22 @@ class Snake {
 		for(let i = 4; i < this.segments.length; i++) {
 			if(this.segments[0].pos.x == this.segments[i].pos.x &&
 			   this.segments[0].pos.y == this.segments[i].pos.y) {
-				return true;
+				return 1;
 			}
 		}
-		return false;
+
+		// Check for food
+		if(this.segments[0].pos.x == food.pos.x && this.segments[0].pos.y == food.pos.y) {
+			// The tail
+			let tail = this.segments[this.segments.length - 1];
+			for(let i = 0; i < 10; i++) {
+				this.segments.push(new Segment(tail.pos.x, tail.pos.y));
+			}
+			// Returning 2 means that our snake just ate the food
+			return 2;
+		}
+
+		return 0;
 	}
 
 	render() {
