@@ -3,8 +3,16 @@ class Game {
 		this.snake = new Snake();
 	}
 
+	reset() {
+		this.snake = new Snake();
+	}
+
 	update() {
-		this.snake.update();
+		// Update the snake
+		// In case of an error, reset the entire thing
+		if(this.snake.update()) {
+			this.reset();
+		}
 	}
 
 	render() {

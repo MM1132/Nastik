@@ -12,8 +12,8 @@ class Segment {
 
 	}
 
-	render() {
-		cc.fillStyle = Segment.color;
+	render(color = Segment.color) {
+		cc.fillStyle = color;
 		cc.fillRect(this.pos.x * TILE_SIZE, this.pos.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 	}
 }
