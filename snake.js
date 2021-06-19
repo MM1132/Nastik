@@ -5,7 +5,7 @@ class Snake {
 
 		// All the pieces of the snake
 		this.segments = [];
-		for(let i = 0; i < 10; i++) {
+		for(let i = 0; i < 4; i++) {
 			this.segments.push(new Segment(10 - i, 10));
 		}
 
