@@ -1,6 +1,6 @@
 # Nastik
 
-## (Hosted at [nastik.kanguste.ee](https://nastik.kanguste.ee/))
+## (Hosted [HERE](https://mm1132.github.io/nastik/))
 
 #### A simple and boring 2d snake game coded in plain `JavaScript`.
 
